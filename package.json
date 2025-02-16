@@ -2,6 +2,10 @@
   "name": "mathjax-svg-filter",
   "version": "0.1.0",
   "description": "Pandoc filter to turn LaTeX math into embedded SVG",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgm/mathjax-svg-filter"
+  },
   "keywords": [
     "pandoc",
     "math",
