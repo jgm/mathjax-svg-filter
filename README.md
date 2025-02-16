@@ -14,7 +14,7 @@ npm install github:jgm/mathjax-svg-filter
 in the directory where you'd like to run pandoc.  This will
 create a `node_modules` directory.  You can then specify
 ```
---filter ./node_modules/.bin/mathjax-svg-filter.js
+--filter ./node_modules/.bin/mathjax-svg-filter
 ```
 on the command line when using pandoc to convert content to
 HTML or EPUB.
