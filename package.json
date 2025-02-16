@@ -1,0 +1,23 @@
+{
+  "name": "mathjax-svg-filter",
+  "version": "0.1.0",
+  "description": "Pandoc filter to turn LaTeX math into embedded SVG",
+  "keywords": [
+    "pandoc",
+    "math",
+    "svg",
+    "TeX",
+    "markdown",
+    "html"
+  ],
+  "author": "John MacFarlane",
+  "license": "MIT",
+  "dependencies": {
+    "mathjax": "^3.2.2",
+    "@xmldom/xmldom": "^0.9.7",
+    "pandoc-filter": "^2.2.0"
+  },
+  "bin": {
+    "mathjax-svg-filter": "mathjax-svg-filter.js"
+  }
+}
