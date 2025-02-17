@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 const pandoc = require("pandoc-filter");
-const dom = require('@xmldom/xmldom').DOMParser;
+const { DOMParser, XMLSerializer } = require('@xmldom/xmldom');
 var mj = null;
 
 function wrap(display, s) {
@@ -31,7 +31,7 @@ async function action({t: type, c: content}, _format, meta) {
       return MathJax.startup.adaptor.innerHTML(svg);
     }).catch((err) => console.log(err.message));
 
-    const doc = new dom().parseFromString(result, 'text/xml');
+    const doc = new DOMParser().parseFromString(result, 'text/xml');
     let title = doc.getElementsByTagName('title')[0];
     if (!title) {
       title = doc.createElement('title');
@@ -49,7 +49,7 @@ async function action({t: type, c: content}, _format, meta) {
         path.setAttribute('d', ' ');
       }
     }
-    return pandoc.RawInline("html", wrap(display, doc.toString()));
+    return pandoc.RawInline("html", wrap(display, new XMLSerializer().serializeToString(doc)));
   }
 };
 
