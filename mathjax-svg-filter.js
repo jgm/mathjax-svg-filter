@@ -5,8 +5,7 @@ const { DOMParser, XMLSerializer } = require('@xmldom/xmldom');
 var mj = null;
 
 function wrap(display, s) {
-  return '<span class="' + (display ? 'display-math' : 'inline-math') +
-    '">' + s + '</span>';
+  return pandoc.Span(["", [display ? 'display-math' : 'inline-math'], []], s)
 }
 
 async function action({t: type, c: content}, _format, meta) {
@@ -49,7 +48,7 @@ async function action({t: type, c: content}, _format, meta) {
         path.setAttribute('d', ' ');
       }
     }
-    return pandoc.RawInline("html", wrap(display, new XMLSerializer().serializeToString(doc)));
+    return wrap(display, [pandoc.RawInline("html", new XMLSerializer().serializeToString(doc))]);
   }
 };
 
